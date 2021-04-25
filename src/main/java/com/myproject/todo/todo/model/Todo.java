@@ -5,13 +5,22 @@ import java.util.Date;
 import org.springframework.lang.NonNull;
 import org.springframework.lang.Nullable;
 
-
+/* 
+ * This is the model class
+ * 
+ * Here we have declared the required variables of the Todo Object 
+ * 
+ * id
+ * Date
+ * String
+ * 
+ */
 
 public class Todo {
 	
-	private Integer id;
-	private Date date; 
-	private String task;
+	private Integer id; //id of Task assigned
+	private Date date;  //date when the Task has been assigned 
+	private String task; //the task
 	
 	public Integer getId() {
 		return id;
@@ -29,7 +38,7 @@ public class Todo {
 		return task;
 	}
 	public void setTask(@NonNull String task) {
-		this.task = task;
+		this.task = task;  //String can never be null as Todo is main focus we are focusing on
 	}
 	
 	public Todo()
