@@ -10,31 +10,49 @@ import org.springframework.stereotype.Service;
 
 import com.myproject.todo.todo.model.Todo;
 
+/*
+ * This is service class of the Todo Object 
+ * 
+ * Controls the opertaion that is occurring in the backend 
+ */
+
 
 @Component
 public class TodoService {
 	
-    private static ArrayList<Todo> TodoArray = new ArrayList<>();
+    private static ArrayList<Todo> TodoList = new ArrayList<>();  //List of Todo
 	
     private static int count=3;
     
+    /*
+     * Storing initial dummy data 
+     */
+    
     static {
-    	TodoArray.add(new Todo(1,new Date(), "1st Task"));
-    	TodoArray.add(new Todo(2,new Date(), "2nd Task"));
-    	TodoArray.add(new Todo(3,new Date(), "3rd Task"));
+    	TodoList.add(new Todo(1,new Date(), "1st Task")); 
+    	TodoList.add(new Todo(2,new Date(), "2nd Task"));
+    	TodoList.add(new Todo(3,new Date(), "3rd Task"));
     	
 //    	Todo t = new Todo();
 //    	t.getId();
     }
     
+    /*
+     * @param None
+     * @return TodoList
+     */
     public List<Todo> showAllTasks()
     {
-    	return TodoArray;
+    	return TodoList;
     }
     
+    /*
+     * @param None
+     * @return TodoList
+     */
     public Todo showATodo(int TodoId)
     {
-    	for(Todo todo:TodoArray)
+    	for(Todo todo:TodoList)
     	{
     		if(todo.getId()==TodoId)
     			return todo;
@@ -42,6 +60,10 @@ public class TodoService {
     	return null;
     }
     
+    /*
+     * @param None
+     * @return TodoList
+     */
     public Todo save(Todo todo)
     {
     	Todo resTodo = new Todo();
@@ -56,13 +78,18 @@ public class TodoService {
     	
     	resTodo.setDate(todo.getDate());
 		resTodo.setTask(todo.getTask());
-    	TodoArray.add(resTodo);
+    	TodoList.add(resTodo);
     	return resTodo;
     }
     
+    /*
+     * @param None
+     * @return TodoList
+     */
+    
     public Todo deleteById(int id)
     {
-    	Iterator<Todo> iterator = TodoArray.iterator();
+    	Iterator<Todo> iterator = TodoList.iterator();
     	while(iterator.hasNext()) {
     		Todo todo = iterator.next();
     		if(todo.getId()==id)
