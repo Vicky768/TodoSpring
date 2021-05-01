@@ -33,7 +33,7 @@ public class TodoController {
 	
 	@GetMapping("/todo/getAllTodos")
 	public List<Todo> getAllTodos(){
-		return todoService.showAllTasks();
+		return todoService.getAllTodo();
 	}
 	/*
 	 * @param Todo id
@@ -42,7 +42,7 @@ public class TodoController {
 	
 	@GetMapping("/todo/getATodo/{id}")
 	public Todo getTodoById(@PathVariable Integer id) {
-		return todoService.showATodo(id);
+		return todoService.getTodoById(id);
 	}
 	/*
 	 * @param Todo
