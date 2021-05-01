@@ -13,7 +13,7 @@ import com.myproject.todo.todo.model.Todo;
 /*
  * This is service class of the Todo Object 
  * 
- * Controls the opertaion that is occurring in the backend 
+ * Controls the operation that is occurring in the back end 
  */
 
 
@@ -62,7 +62,7 @@ public class TodoService {
     
     /*
      * @param None
-     * @return TodoList
+     * @return id  // instead of TodoList Return an id 
      */
     public Todo save(Todo todo)
     {
