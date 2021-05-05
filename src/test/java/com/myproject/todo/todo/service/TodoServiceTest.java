@@ -38,7 +38,17 @@ public class TodoServiceTest {
 		assertEquals(output.getDate(),testTodo.getDate());
 		assertEquals(output.getTask(),testTodo.getTask());
 	}
-	
+
+	@Test
+	 public void testMarkTodoAsComplete(){
+			assertTrue(testService.markTodoAsComplete(1).getCompleteStatus());
+	}
+
+	@Test
+	public void testMarkTodoAsIncomplete() throws ObjectWithGivenIdNotFoundException {
+		assertFalse(testService.markTodoAsIncomplete(2).getCompleteStatus());
+	}
+
 	@Test
 	public void testGetAllTodo() throws NoSuchFieldException, IllegalAccessException {
 		Field f = (testService).getClass().getDeclaredField("count");

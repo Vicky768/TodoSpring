@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 import com.myproject.todo.todo.model.Todo;
@@ -11,6 +12,7 @@ import com.myproject.todo.todo.model.Todo;
 /**
  * Please Add proper Doc comments based on th comments below.
  */
+
 @Component
 public class TodoService {
 	
@@ -23,9 +25,9 @@ public class TodoService {
      */
     
     static {
-    	todoList.add(new Todo(1,new Date(), "1st Task"));
-    	todoList.add(new Todo(2,new Date(), "2nd Task"));
-    	todoList.add(new Todo(3,new Date(), "3rd Task"));
+    	todoList.add(new Todo(1,new Date(),"1st Task",false));
+    	todoList.add(new Todo(2,new Date(),"2nd Task",false));
+    	todoList.add(new Todo(3,new Date(),"3rd Task",false));
     }
     
     /* Method used to extract all Todo Objects currently stored in the list.
@@ -68,7 +70,33 @@ public class TodoService {
 		return todo;
 
     }
-    
+
+    /*
+    * Method is used to mark a Todo as complete
+    *
+    * @param id The id of the todo for which the Todo is to be marked as complete
+    * @return The todo returned
+    *
+    */
+    public Todo markTodoAsComplete(Integer todoid) throws ObjectWithGivenIdNotFoundException {
+		Todo todo = getTodoById(todoid);
+		todo.markComplete();
+		return todo;
+	}
+
+	/*
+	* Method is used to mark the Todo as incomplete
+	*
+	* @param id The id of the todo for which the Todo is to be marked as complete
+	 * @return The todo returned
+	*/
+	public Todo markTodoAsIncomplete(Integer todoid) throws ObjectWithGivenIdNotFoundException{
+		Todo todo = getTodoById(todoid);
+		todo.markIncomplete();
+		return todo;
+	}
+
+
     /* Method used to delete an object from the list based on the id field value.
      * If the object is deleted the count is set to the size of the list to maintain consistency.
      *

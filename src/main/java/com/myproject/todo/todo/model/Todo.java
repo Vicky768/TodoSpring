@@ -13,7 +13,8 @@ import org.springframework.lang.Nullable;
  * id
  * Date
  * String
- * 
+ *
+ * isComplete
  */
 
 public class Todo {
@@ -21,7 +22,7 @@ public class Todo {
 	private Integer id; //id of Task assigned
 	private Date date;  //date when the Task has been assigned 
 	private String task; //the task
-
+	private boolean isComplete; //this is the parameter for checking if the Todo Task has been completed
 
 	public Integer getId() {
 		return id;
@@ -47,20 +48,36 @@ public class Todo {
 	public void setTask(@NonNull String task) {
 		this.task = task;  //String can never be null as Todo is main focus we are focusing on
 	}
-	
-	public Todo()
-	{
-		
+
+	public boolean getCompleteStatus() {
+		return isComplete;
 	}
-	public Todo(int id, Date date, String task) {
+
+	public void markComplete(){
+		this.isComplete=true;
+	}
+
+	public void markIncomplete(){
+		this.isComplete=false;
+	}
+
+	public Todo() {}
+
+	public Todo(int id, Date date, String task, boolean isComplete) {
 		
 		this.id = id;
 		this.date = date;
 		this.task = task;
-	} 
-	
+		this.isComplete = isComplete;
+	}
+
 	@Override
 	public String toString() {
-		return "Todo [TodoId=" + id + ", date=" + date + ", task=" + task + "]";
+		return "Todo{" +
+				"id=" + id +
+				", date=" + date +
+				", task='" + task + '\'' +
+				", isComplete=" + isComplete +
+				'}';
 	}
 }
