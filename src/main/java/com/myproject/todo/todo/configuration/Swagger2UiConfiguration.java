@@ -16,6 +16,11 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 import static com.google.common.base.Predicates.or;
 import static springfox.documentation.builders.PathSelectors.regex;
 
+/*
+    *This is the Swagger docuemntation of the application
+    * The Swagger can be accessed using the url
+    * http://localhost:8080/swagger-ui.html#/
+ */
 @Configuration
 @EnableSwagger2
 public class Swagger2UiConfiguration {
@@ -31,10 +36,10 @@ public class Swagger2UiConfiguration {
    }
 
    private ApiInfo apiInfo() {
-       return new ApiInfoBuilder().title("Java In Use API")
-               .description("JavaInUse API reference for developers")
-               .termsOfServiceUrl("http://javainuse.com")
-               .contact("javainuse@gmail.com").license("JavaInUse License")
-               .licenseUrl("javainuse@gmail.com").version("1.0").build();
+       return new ApiInfoBuilder().title("Todo Application")
+               .description("Application for Keeping the Tasks to be done")
+               .termsOfServiceUrl("http://todo.com")
+               .contact("ray.vicky712@gmail.com").license("Todo License")
+               .licenseUrl("sanubhattacharya@gmail.com").version("1.0").build();
    }
 }
